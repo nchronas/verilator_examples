@@ -1,0 +1,12 @@
+# DESCRIPTION: Verilator output: Timestamp data for --skip-identical.  Delete at will.
+C "-Wno-fatal -Wall --cc uart.v --exe sim_main.cpp"
+S   4916112  2522213  1496245498 "/media/nanimo/lowRISC_repo/lowRISC/verilator/verilator_bin"
+T     10497  2359429  1496580518 "obj_dir/Vuart.cpp"
+T      3430  2359428  1496580518 "obj_dir/Vuart.h"
+T      1980  2359431  1496580518 "obj_dir/Vuart.mk"
+T       569  2359427  1496580518 "obj_dir/Vuart__Syms.cpp"
+T       955  2359426  1496580518 "obj_dir/Vuart__Syms.h"
+T       274  2359432  1496580518 "obj_dir/Vuart__ver.d"
+T         0        0  1496580518 "obj_dir/Vuart__verFiles.dat"
+T      1082  2359430  1496580518 "obj_dir/Vuart_classes.mk"
+S      8596  2359423  1496580515 "uart.v"
