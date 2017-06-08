@@ -8,7 +8,7 @@
 #ifndef _Vmem_H_
 #define _Vmem_H_
 
-#include "verilated.h"
+#include "verilated_heavy.h"
 class Vmem__Syms;
 class VerilatedVcd;
 
@@ -39,12 +39,14 @@ VL_MODULE(Vmem) {
     
     // LOCAL SIGNALS
     // Internals; generally not touched by application code
+    VL_SIG(datamem__DOT__mask,31,0);
+    //char	__VpadToAlign36[4];
     VL_SIG(datamem__DOT__mem[16],31,0);
     
     // LOCAL VARIABLES
     // Internals; generally not touched by application code
     VL_SIG8(__Vclklast__TOP__clk,0,0);
-    //char	__VpadToAlign101[3];
+    //char	__VpadToAlign109[3];
     VL_SIG(__Vm_traceActivity,31,0);
     
     // INTERNAL VARIABLES

@@ -57,30 +57,31 @@ void Vmem::traceInitThis__1(Vmem__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, 
     if (0 && vcdp && c) {}  // Prevent unused
     // Body
     {
-	vcdp->declBit  (c+17,"clk",-1);
-	vcdp->declBus  (c+18,"dina",-1,31,0);
-	vcdp->declBus  (c+19,"addra",-1,13,0);
-	vcdp->declBus  (c+20,"wea",-1,0,0);
-	vcdp->declBus  (c+21,"ena",-1,3,0);
-	vcdp->declBus  (c+22,"douta",-1,31,0);
-	vcdp->declBus  (c+23,"dinb",-1,31,0);
-	vcdp->declBus  (c+24,"addrb",-1,13,0);
-	vcdp->declBus  (c+25,"web",-1,0,0);
-	vcdp->declBus  (c+26,"enb",-1,3,0);
-	vcdp->declBus  (c+27,"doutb",-1,31,0);
-	vcdp->declBit  (c+17,"datamem clk",-1);
-	vcdp->declBus  (c+18,"datamem dina",-1,31,0);
-	vcdp->declBus  (c+19,"datamem addra",-1,13,0);
-	vcdp->declBus  (c+20,"datamem wea",-1,0,0);
-	vcdp->declBus  (c+21,"datamem ena",-1,3,0);
-	vcdp->declBus  (c+22,"datamem douta",-1,31,0);
-	vcdp->declBus  (c+23,"datamem dinb",-1,31,0);
-	vcdp->declBus  (c+24,"datamem addrb",-1,13,0);
-	vcdp->declBus  (c+25,"datamem web",-1,0,0);
-	vcdp->declBus  (c+26,"datamem enb",-1,3,0);
-	vcdp->declBus  (c+27,"datamem doutb",-1,31,0);
+	vcdp->declBit  (c+18,"clk",-1);
+	vcdp->declBus  (c+19,"dina",-1,31,0);
+	vcdp->declBus  (c+20,"addra",-1,13,0);
+	vcdp->declBus  (c+21,"wea",-1,0,0);
+	vcdp->declBus  (c+22,"ena",-1,3,0);
+	vcdp->declBus  (c+23,"douta",-1,31,0);
+	vcdp->declBus  (c+24,"dinb",-1,31,0);
+	vcdp->declBus  (c+25,"addrb",-1,13,0);
+	vcdp->declBus  (c+26,"web",-1,0,0);
+	vcdp->declBus  (c+27,"enb",-1,3,0);
+	vcdp->declBus  (c+28,"doutb",-1,31,0);
+	vcdp->declBit  (c+18,"datamem clk",-1);
+	vcdp->declBus  (c+19,"datamem dina",-1,31,0);
+	vcdp->declBus  (c+20,"datamem addra",-1,13,0);
+	vcdp->declBus  (c+21,"datamem wea",-1,0,0);
+	vcdp->declBus  (c+22,"datamem ena",-1,3,0);
+	vcdp->declBus  (c+23,"datamem douta",-1,31,0);
+	vcdp->declBus  (c+24,"datamem dinb",-1,31,0);
+	vcdp->declBus  (c+25,"datamem addrb",-1,13,0);
+	vcdp->declBus  (c+26,"datamem web",-1,0,0);
+	vcdp->declBus  (c+27,"datamem enb",-1,3,0);
+	vcdp->declBus  (c+28,"datamem doutb",-1,31,0);
 	{int i; for (i=0; i<16; i++) {
 		vcdp->declBus  (c+1+i*1,"datamem mem",(i+0),31,0);}}
+	vcdp->declBus  (c+17,"datamem mask",-1,31,0);
     }
 }
 
@@ -106,16 +107,17 @@ void Vmem::traceFullThis__1(Vmem__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, 
 	vcdp->fullBus  (c+14,(vlTOPp->datamem__DOT__mem[13]),32);
 	vcdp->fullBus  (c+15,(vlTOPp->datamem__DOT__mem[14]),32);
 	vcdp->fullBus  (c+16,(vlTOPp->datamem__DOT__mem[15]),32);
-	vcdp->fullBit  (c+17,(vlTOPp->clk));
-	vcdp->fullBus  (c+18,(vlTOPp->dina),32);
-	vcdp->fullBus  (c+19,(vlTOPp->addra),14);
-	vcdp->fullBus  (c+20,(vlTOPp->wea),1);
-	vcdp->fullBus  (c+21,(vlTOPp->ena),4);
-	vcdp->fullBus  (c+22,(vlTOPp->douta),32);
-	vcdp->fullBus  (c+23,(vlTOPp->dinb),32);
-	vcdp->fullBus  (c+24,(vlTOPp->addrb),14);
-	vcdp->fullBus  (c+25,(vlTOPp->web),1);
-	vcdp->fullBus  (c+26,(vlTOPp->enb),4);
-	vcdp->fullBus  (c+27,(vlTOPp->doutb),32);
+	vcdp->fullBus  (c+17,(vlTOPp->datamem__DOT__mask),32);
+	vcdp->fullBit  (c+18,(vlTOPp->clk));
+	vcdp->fullBus  (c+19,(vlTOPp->dina),32);
+	vcdp->fullBus  (c+20,(vlTOPp->addra),14);
+	vcdp->fullBus  (c+21,(vlTOPp->wea),1);
+	vcdp->fullBus  (c+22,(vlTOPp->ena),4);
+	vcdp->fullBus  (c+23,(vlTOPp->douta),32);
+	vcdp->fullBus  (c+24,(vlTOPp->dinb),32);
+	vcdp->fullBus  (c+25,(vlTOPp->addrb),14);
+	vcdp->fullBus  (c+26,(vlTOPp->web),1);
+	vcdp->fullBus  (c+27,(vlTOPp->enb),4);
+	vcdp->fullBus  (c+28,(vlTOPp->doutb),32);
     }
 }

@@ -14,14 +14,19 @@ module datamem(
                 output [31:0] doutb
                 );
 
-    reg[31:0] mem [15:0];
+    reg [31:0] mem [15:0];
+    wire [31:0] mask;
 
-    always @(posedge clk)
-       if (ena)
-          if (wea)
-              mem[addra] = dina;
-          else
-              douta = mem[addra];
-              //$display("Reset received");
-
+    always @(posedge clk) begin
+       mask = { {8{ena[3]}}, {8{ena[2]}}, {8{ena[1]}}, {8{ena[0]}} };
+       if (ena) begin
+          if (wea) begin
+              mem[addra] = dina & mask;
+              $display("Clk: addr: %d en:  %d we:  %d din:  %d dout:  %d mask:  %d mem: ", addra, ena, wea, dina, douta, mask );
+          end else begin
+              douta = mem[addra] & mask;
+              $display("Clk: addr: %d en:  %d we:  %d din:  %d dout:  %d mask:  %d mem: ", addra, ena, wea, dina, douta, mask );
+          end
+       end
+    end
 endmodule

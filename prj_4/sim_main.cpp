@@ -18,6 +18,18 @@ int main(int argc, char** argv) {
 
     i = 0;
 
+    top->ena = 0x0;
+    top->wea = 0;
+    top->addra = 0;
+    top->dina = 0x00000000;
+
+    for (clk=0; clk<2; clk++) {
+        tfp->dump (2*i+clk);
+        top->clk = !top->clk;
+        top->eval ();
+    }
+    i++;
+
     top->ena = 0xF;
     top->wea = 1;
     top->addra = 0;
@@ -28,7 +40,6 @@ int main(int argc, char** argv) {
         top->clk = !top->clk;
         top->eval ();
     }
-
     i++;
 
     top->ena = 0xF;
@@ -41,8 +52,33 @@ int main(int argc, char** argv) {
         top->clk = !top->clk;
         top->eval ();
     }
-
     i++;
+
+    top->ena = 0xF;
+    top->wea = 1;
+    top->addra = 1;
+    top->dina = 0xABCD0987;
+
+    for (clk=0; clk<2; clk++) {
+        tfp->dump (2*i+clk);
+        top->clk = !top->clk;
+        top->eval ();
+    }
+    i++;
+
+    top->ena = 0xF;
+    top->wea = 0;
+    top->addra = 1;
+    top->dina = 0xABCD0987;
+
+    for (clk=0; clk<2; clk++) {
+        tfp->dump (2*i+clk);
+        top->clk = !top->clk;
+        top->eval ();
+    }
+    i++;
+
+
 
     for (clk=0; clk<2; clk++) {
         tfp->dump (2*i+clk);

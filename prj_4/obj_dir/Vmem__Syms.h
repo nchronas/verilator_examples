@@ -6,7 +6,7 @@
 #ifndef _Vmem__Syms_H_
 #define _Vmem__Syms_H_
 
-#include "verilated.h"
+#include "verilated_heavy.h"
 
 // INCLUDE MODULE CLASSES
 #include "Vmem.h"

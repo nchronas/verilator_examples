@@ -55,6 +55,7 @@ void Vmem::traceChgThis__2(Vmem__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, u
 	vcdp->chgBus  (c+14,(vlTOPp->datamem__DOT__mem[13]),32);
 	vcdp->chgBus  (c+15,(vlTOPp->datamem__DOT__mem[14]),32);
 	vcdp->chgBus  (c+16,(vlTOPp->datamem__DOT__mem[15]),32);
+	vcdp->chgBus  (c+17,(vlTOPp->datamem__DOT__mask),32);
     }
 }
 
@@ -64,16 +65,16 @@ void Vmem::traceChgThis__3(Vmem__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, u
     if (0 && vcdp && c) {}  // Prevent unused
     // Body
     {
-	vcdp->chgBit  (c+17,(vlTOPp->clk));
-	vcdp->chgBus  (c+18,(vlTOPp->dina),32);
-	vcdp->chgBus  (c+19,(vlTOPp->addra),14);
-	vcdp->chgBus  (c+20,(vlTOPp->wea),1);
-	vcdp->chgBus  (c+21,(vlTOPp->ena),4);
-	vcdp->chgBus  (c+22,(vlTOPp->douta),32);
-	vcdp->chgBus  (c+23,(vlTOPp->dinb),32);
-	vcdp->chgBus  (c+24,(vlTOPp->addrb),14);
-	vcdp->chgBus  (c+25,(vlTOPp->web),1);
-	vcdp->chgBus  (c+26,(vlTOPp->enb),4);
-	vcdp->chgBus  (c+27,(vlTOPp->doutb),32);
+	vcdp->chgBit  (c+18,(vlTOPp->clk));
+	vcdp->chgBus  (c+19,(vlTOPp->dina),32);
+	vcdp->chgBus  (c+20,(vlTOPp->addra),14);
+	vcdp->chgBus  (c+21,(vlTOPp->wea),1);
+	vcdp->chgBus  (c+22,(vlTOPp->ena),4);
+	vcdp->chgBus  (c+23,(vlTOPp->douta),32);
+	vcdp->chgBus  (c+24,(vlTOPp->dinb),32);
+	vcdp->chgBus  (c+25,(vlTOPp->addrb),14);
+	vcdp->chgBus  (c+26,(vlTOPp->web),1);
+	vcdp->chgBus  (c+27,(vlTOPp->enb),4);
+	vcdp->chgBus  (c+28,(vlTOPp->doutb),32);
     }
 }

@@ -71,14 +71,43 @@ VL_INLINE_OPT void Vmem::_sequent__TOP__1(Vmem__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_PRINTF("    Vmem::_sequent__TOP__1\n"); );
     Vmem* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // ALWAYS at mem.v:19
+    // ALWAYS at mem.v:20
+    vlTOPp->datamem__DOT__mask = ((0xff000000U & (VL_NEGATE_I((IData)(
+								      (1U 
+								       & ((IData)(vlTOPp->ena) 
+									  >> 3U)))) 
+						  << 0x18U)) 
+				  | ((0xff0000U & (
+						   VL_NEGATE_I((IData)(
+								       (1U 
+									& ((IData)(vlTOPp->ena) 
+									   >> 2U)))) 
+						   << 0x10U)) 
+				     | ((0xff00U & 
+					 (VL_NEGATE_I((IData)(
+							      (1U 
+							       & ((IData)(vlTOPp->ena) 
+								  >> 1U)))) 
+					  << 8U)) | 
+					(0xffU & VL_NEGATE_I((IData)(
+								     (1U 
+								      & (IData)(vlTOPp->ena))))))));
     if ((0U != (IData)(vlTOPp->ena))) {
 	if (vlTOPp->wea) {
 	    vlTOPp->datamem__DOT__mem[(0xfU & (IData)(vlTOPp->addra))] 
-		= vlTOPp->dina;
+		= (vlTOPp->dina & vlTOPp->datamem__DOT__mask);
+	    VL_WRITEF("Clk: addr: %5# en:  %2# we:  %1# din:  %10# dout:  %10# mask:  %10# mem: \n",
+		      14,vlTOPp->addra,4,(IData)(vlTOPp->ena),
+		      1,vlTOPp->wea,32,vlTOPp->dina,
+		      32,vlTOPp->douta,32,vlTOPp->datamem__DOT__mask);
 	} else {
-	    vlTOPp->douta = vlTOPp->datamem__DOT__mem
-		[(0xfU & (IData)(vlTOPp->addra))];
+	    vlTOPp->douta = (vlTOPp->datamem__DOT__mem
+			     [(0xfU & (IData)(vlTOPp->addra))] 
+			     & vlTOPp->datamem__DOT__mask);
+	    VL_WRITEF("Clk: addr: %5# en:  %2# we:  %1# din:  %10# dout:  %10# mask:  %10# mem: \n",
+		      14,vlTOPp->addra,4,(IData)(vlTOPp->ena),
+		      1,vlTOPp->wea,32,vlTOPp->dina,
+		      32,vlTOPp->douta,32,vlTOPp->datamem__DOT__mask);
 	}
     }
 }
@@ -138,6 +167,7 @@ void Vmem::_ctor_var_reset() {
     { int __Vi0=0; for (; __Vi0<16; ++__Vi0) {
 	    datamem__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
     }}
+    datamem__DOT__mask = VL_RAND_RESET_I(32);
     __Vclklast__TOP__clk = VL_RAND_RESET_I(1);
     __Vm_traceActivity = VL_RAND_RESET_I(32);
 }
